@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alireza — Architect</title>
+    <meta name="description" content="Architecture portfolio — from first sketch to built work." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="nav">
+      <a href="#top" class="logo">ALIREZA<span>/architect</span></a>
+      <nav>
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <!-- Scroll story: the canvas is sticky while the section scrolls past -->
+    <section id="top" class="story" aria-label="From sketch to building">
+      <div class="sticky">
+        <canvas id="scene" aria-hidden="true"></canvas>
+
+        <div class="hero">
+          <p class="eyebrow">Architecture portfolio — 2026</p>
+          <h1>From the first line<br />to the lit window.</h1>
+          <p class="scroll-cue"><span></span>Scroll to build</p>
+        </div>
+
+        <div class="panels" id="panels"></div>
+        <ol class="rail" id="rail"></ol>
+
+        <div class="titleblock" id="titleblock">
+          <div><small>Project</small><strong>Terrace Tower</strong></div>
+          <div><small>Dwg no.</small><strong id="tb-dwg">SK-001</strong></div>
+          <div><small>Stage</small><strong id="tb-stage">01 Concept</strong></div>
+          <div><small>Scale</small><strong>1:200</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="work" class="work">
+      <div class="section-head">
+        <p class="eyebrow">Selected work</p>
+        <h2>Projects</h2>
+      </div>
+      <div class="grid" id="grid"></div>
+    </section>
+
+    <section id="about" class="about">
+      <p class="eyebrow">About</p>
+      <p class="lead reveal">
+        Alireza is an architect working between concept and construction — residential, cultural and public
+        projects shaped by light, climate and craft. <em>(Placeholder bio — replace.)</em>
+      </p>
+      <dl class="facts reveal">
+        <div><dt>Education</dt><dd>M.Arch — University TBD</dd></div>
+        <div><dt>Experience</dt><dd>— years, — projects</dd></div>
+        <div><dt>Tools</dt><dd>Rhino · Revit · Grasshopper · Enscape · D5</dd></div>
+        <div><dt>Based in</dt><dd>Tehran — open to remote</dd></div>
+      </dl>
+    </section>
+
+    <footer id="contact" class="contact">
+      <p class="eyebrow">Contact</p>
+      <a class="big-link" href="mailto:hello@example.com">hello@example.com</a>
+      <div class="links">
+        <a href="#">Instagram</a><a href="#">LinkedIn</a><a href="#">CV (PDF)</a>
+      </div>
+      <p class="copy">© 2026 Alireza. All drawings and images © their authors.</p>
+    </footer>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

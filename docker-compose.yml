@@ -1,0 +1,7 @@
+services:
+  web:
+    build: .
+    image: alireza-portfolio:latest
+    ports:
+      - "8080:80"
+    restart: unless-stopped
