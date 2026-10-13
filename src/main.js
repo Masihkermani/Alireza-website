@@ -7,11 +7,15 @@ import { projects } from './data/projects.js';
 
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+// Persian digits for everything user-facing
+const fa = (v) => String(v).replace(/\d/g, (d) => '۰۱۲۳۴۵۶۷۸۹'[d]);
+const pad = (n) => fa(String(n).padStart(2, '0'));
+
 // ---- Story panels + progress rail -------------------------------------------
 const panels = document.getElementById('panels');
 const rail = document.getElementById('rail');
 stages.forEach((s, i) => {
-  const n = String(i + 1).padStart(2, '0');
+  const n = pad(i + 1);
   panels.insertAdjacentHTML('beforeend', `
     <article class="panel" data-i="${i}">
       <p class="eyebrow">${n} — ${s.label}</p>
@@ -28,9 +32,9 @@ projects.forEach((p, i) => {
     <a class="card reveal" href="#${p.slug}" style="--h:${p.hue}">
       <div class="thumb"><span class="ph">${p.type}</span></div>
       <div class="meta">
-        <span class="num">${String(i + 1).padStart(2, '0')}</span>
+        <span class="num">${pad(i + 1)}</span>
         <h3>${p.title}</h3>
-        <span>${p.location} · ${p.year}</span>
+        <span>${p.location}، ${fa(p.year)}</span>
         <span class="status">${p.status}</span>
       </div>
     </a>`);
@@ -65,7 +69,7 @@ function onScroll() {
     panels.querySelectorAll('.panel').forEach((el) => el.classList.toggle('on', +el.dataset.i === i && p > 0.04));
     rail.querySelectorAll('button').forEach((el) => el.classList.toggle('on', +el.dataset.i === i));
     tbDwg.textContent = stages[i].dwg;
-    tbStage.textContent = `${String(i + 1).padStart(2, '0')} ${stages[i].label}`;
+    tbStage.textContent = `${pad(i + 1)} ${stages[i].label}`;
   }
   // Only show the first panel once the hero has scrolled away
   if (i === 0) panels.querySelector('.panel').classList.toggle('on', p > 0.04);

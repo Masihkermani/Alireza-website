@@ -3,6 +3,9 @@
 Scroll-driven portfolio. A single 3D building turns as you scroll and moves through
 the stages of a project: **sketch → plan → extrusion → massing → render → built (night)**.
 
+Persian, right-to-left (`<html lang="fa" dir="rtl">`, Vazirmatn font, Persian digits,
+Solar Hijri years). Layout uses CSS logical properties, so switching `dir` mirrors it.
+
 Stack: Vite · Three.js · Lenis (smooth scroll). No framework, no backend.
 
 ## Run locally

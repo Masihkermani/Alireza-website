@@ -248,8 +248,10 @@ export function createScene(canvas) {
     camera.aspect = w / h;
     // Pull back on portrait screens so the tower fits
     camera.fov = w < h ? 50 : 35;
-    // Frame the building away from the text: right on desktop, up on mobile
-    if (w >= h) camera.setViewOffset(w, h, -w * 0.12, 0, w, h);
+    // Frame the building away from the text: to the side opposite the
+    // reading start on desktop (left for RTL), up on mobile
+    const rtl = document.documentElement.dir === 'rtl';
+    if (w >= h) camera.setViewOffset(w, h, (rtl ? 1 : -1) * w * 0.15, 0, w, h);
     else camera.setViewOffset(w, h, 0, h * 0.1, w, h);
     camera.updateProjectionMatrix();
   }
