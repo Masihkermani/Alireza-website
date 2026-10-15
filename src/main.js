@@ -1,5 +1,14 @@
 import Lenis from 'lenis';
 import 'lenis/dist/lenis.css';
+// Fonts are bundled and served from our own domain: Google Fonts is slow or
+// unreliable for visitors in Iran.
+import '@fontsource/vazirmatn/300.css';
+import '@fontsource/vazirmatn/400.css';
+import '@fontsource/vazirmatn/500.css';
+import '@fontsource/vazirmatn/600.css';
+import '@fontsource/vazirmatn/700.css';
+import '@fontsource/jetbrains-mono/400.css';
+import '@fontsource/jetbrains-mono/500.css';
 import './style.css';
 import { createScene } from './scene.js';
 import { stages } from './stages.js';
@@ -102,7 +111,8 @@ rail.addEventListener('click', (e) => {
 });
 document.querySelectorAll('a[href^="#"]').forEach((a) => {
   a.addEventListener('click', (e) => {
-    const t = document.querySelector(a.getAttribute('href'));
+    // getElementById, not querySelector: a bare "#" placeholder is not a valid selector
+    const t = document.getElementById(a.getAttribute('href').slice(1));
     if (!t) return;
     e.preventDefault();
     scrollToY(t.offsetTop);
